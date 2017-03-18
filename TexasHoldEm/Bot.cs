@@ -3,7 +3,7 @@
 /// <summary>
 /// Summary description for Class1
 /// </summary>
-public class Bot {
+public static class Bot {
 	
 	private const int chromosomeSize = 10;
 	private Chromosome<double> chromosome;
@@ -33,6 +33,28 @@ public class Bot {
 
 	private double getSelfWinProb() {
 		// Returns the probability of us winning
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		return 0.0;
 	}
 
