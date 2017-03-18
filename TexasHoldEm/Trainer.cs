@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class Trainer {
 	
 	private int popSize;
-	private Gene<double>[] pop;
+	private List<Gene<double>> pop;
 	private int currentGene = 0;
 	private int generation = 1;
 	private const double crossoverSplit = 0.5;
@@ -32,7 +32,17 @@ public class Trainer {
 
 	public void nextGeneration() {
 		generation++;
+		pop.Sort(geneSort);		// Sorting
+		pop.getFittest()
+	}
 
+	private static int geneSort(Gene<double> geneA, Gene<double> geneB) {
+		double diff = geneA.getFitness() - geneB.getFitness();
+		if (diff > 0)
+			return 1;
+		if (diff < 0)
+			return -1;
+		return 0;
 	}
 
 	private Gene<double> crossover(Gene<double> geneA, Gene<double> geneB) {

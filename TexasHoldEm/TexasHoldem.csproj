@@ -111,6 +111,7 @@
     <Compile Include="Chromosome.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameStateWrapper.cs" />
+    <Compile Include="Gene.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="TexasHoldEmDesk.xaml.cs">
       <DependentUpon>TexasHoldEmDesk.xaml</DependentUpon>
