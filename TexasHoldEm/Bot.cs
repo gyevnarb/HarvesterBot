@@ -26,7 +26,7 @@ public static class Bot {
 	private static double getSelfWinProb() {
         // Returns the probability of us winning
 
-        double ourRoyalFlushChance = CalculateRoyalFlushChance();
+        double ourRoyalFlushChance = calculateRoyalFlushChance();
         double ourStraightFlushChance;
         double ourFourKindChance;
         double ourFullHouseChance;
@@ -53,11 +53,18 @@ public static class Bot {
         return 0.0;
 	}
 
-    private static double  CalculateRoyalFlushChance()
-    {
+
+    private static double  calculateRoyalFlushChance() {
+
+
+
     
-        return 0.0;
+       return 0.0;
+
+
     }
+    
+    
 
 
 

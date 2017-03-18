@@ -14,6 +14,8 @@ namespace TexasHoldEm.Client
     {
         readonly Random _random = new Random();
 
+        Trainer trainer = new Trainer();
+
         public override GameType GameType
         {
             get { return GameType.TexasHoldEm; }
@@ -219,11 +221,13 @@ namespace TexasHoldEm.Client
             var move = new TexasHoldEmMove();
 
 
+
             // Bet the minimum and one in three times raise by 0, 10, 20, 30 or 40
             move.BetSize = minBet + playerStack;//(_random.Next(3) == 0 ? 10 : 0) * _random.Next(5);
 
             // call server to process our move
             ClientMoved(move);
+
         }
 
         #region Helper Methods
