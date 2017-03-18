@@ -3,7 +3,7 @@
 /// <summary>
 /// Summary description for Class1
 /// </summary>
-public class Chromosome<Type, Size> {
+public class Chromosome<Type> {
 
     public Chromosome() {
 		//
