@@ -37,7 +37,7 @@ namespace TexasHoldEm.Client
         public override void CalculateMove(TexasHoldEmGameState state)
         {
 
-            GameState.THGS = state;
+            
             
             #region Helper Values
             // calculate min bet

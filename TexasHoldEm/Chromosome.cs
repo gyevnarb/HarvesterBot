@@ -1,4 +1,5 @@
 ﻿using System;
+using AIGaming.Core.Games;
 
 /// <summary>
 /// Summary description for Class1
