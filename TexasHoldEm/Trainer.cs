@@ -33,7 +33,7 @@ public class Trainer {
 	public void nextGeneration() {
 		generation++;
 		pop.Sort(geneSort);		// Sorting
-		pop.getFittest()
+		List<Gene<double>> fittest = getFittest();
 	}
 
 	private static int geneSort(Gene<double> geneA, Gene<double> geneB) {
@@ -43,6 +43,10 @@ public class Trainer {
 		if (diff < 0)
 			return -1;
 		return 0;
+	}
+
+	private List<Gene<double>> getFittest() {
+		return new List<Gene<double>>();
 	}
 
 	private Gene<double> crossover(Gene<double> geneA, Gene<double> geneB) {
