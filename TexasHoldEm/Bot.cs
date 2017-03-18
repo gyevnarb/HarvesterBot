@@ -49,13 +49,13 @@ public static class Bot {
         double theirNoChance;
 
         
-     
-
+     if (GameStateWrapper)
         return 0.0;
 	}
 
     private static double  CalculateRoyalFlushChance { get; set; }
     {
+    
         return 0.0;
     }
 
