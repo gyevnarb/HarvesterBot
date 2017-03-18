@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Summary description for Class1
@@ -8,6 +9,7 @@ public class Trainer {
 	private int popSize;
 	private Gene<double>[] pop;
 	private int currentGene = 0;
+	private int generation = 1;
 	private const double crossoverSplit = 0.5;
 
 	public Trainer(int popSize = 10) {
@@ -18,23 +20,25 @@ public class Trainer {
 	}
 	
 	public bool nextGene() {
-		return ++currentGene < popSize;
+		if(++currentGene < popSize)
+			return true;
+		currentGene = 0;
+		return false;
 	}
 
 	public Gene<double> getCurrentGene() {
 		return this.pop[currentGene];
 	}
 
-	private void nextGeneration() {
-		
+	public void nextGeneration() {
+		generation++;
+
 	}
 
 	private Gene<double> crossover(Gene<double> geneA, Gene<double> geneB) {
-		double[] left = geneA.getLeft(crossoverSplit);
-		double[] right = geneB.getRight(1 - crossoverSplit);
-		double[] newData = new double[left.Length + right.Length];
-		left.CopyTo(newData, 0);
-		right.CopyTo(newData, left.Length);
-		return new Gene<double>(newData);
+		List<double> left = geneA.getLeft(crossoverSplit);
+		List<double> right = geneB.getRight(1 - crossoverSplit);
+		left.AddRange(right);
+		return new Gene<double>(left);
 	}
 }
