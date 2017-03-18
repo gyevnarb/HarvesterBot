@@ -106,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
+=======
+    <Compile Include="APIInterface.cs" />
+>>>>>>> 5d5eb4a68bc9a9ecf77e5d245d79f5fd62fc5475
     <Compile Include="Bot.cs" />
     <Compile Include="Chromosome.cs" />
     <Compile Include="Game.cs" />
@@ -113,6 +117,7 @@
     <Compile Include="TexasHoldEmDesk.xaml.cs">
       <DependentUpon>TexasHoldEmDesk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Trainer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -249,6 +254,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="aigaming.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\AIGaming.Client.dll" />
+    <Content Include="Libs\AIGaming.Core.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

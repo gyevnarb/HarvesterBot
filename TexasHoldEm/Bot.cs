@@ -54,7 +54,7 @@ public static class Bot {
         return 0.0;
 	}
 
-    private static double CalculateRoyalFlushChance { get; set; }
+    private static double  CalculateRoyalFlushChance { get; set; }
     {
         return 0.0;
     }
