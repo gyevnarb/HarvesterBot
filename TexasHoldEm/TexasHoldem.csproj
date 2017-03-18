@@ -252,6 +252,10 @@
   <ItemGroup>
     <Resource Include="aigaming.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\AIGaming.Client.dll" />
+    <Content Include="Libs\AIGaming.Core.dll" />
+  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
