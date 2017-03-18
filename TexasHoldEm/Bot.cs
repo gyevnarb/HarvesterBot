@@ -5,57 +5,33 @@
 /// </summary>
 public static class Bot {
 	
-	private const int chromosomeSize = 10;
-	private Chromosome<double> chromosome;
 
-	public Bot() {
-		chromosome = new Chromosome<double>(chromosomeSize);
-	}
+	
 
-	public Bot(double[] values) {
-		chromosome = new Chromosome<double>(values);
-	}
-
-	public bool betOrFold(int currentBet) {
+	public static bool betOrFold(int currentBet) {
 		// True is bet, False is fold
 		return true;
 	}
 
-	public int makeBet() {
+	public static int makeBet() {
 		// returns the ammount to bet
 		return 0;
 	}
 
-	private double getEnemyWinProb() {
+	private static double getEnemyWinProb() {
 		// Returns the probability of the enemy winning
 		return 0.0;
 	}
 
-	private double getSelfWinProb() {
-		// Returns the probability of us winning
-            
+	private static double getSelfWinProb() {
+        // Returns the probability of us winning
 
+     int ourRoyalFlushChance;
+        int ourStraightFlushChance;
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		return 0.0;
+    		return 0.0;
 	}
 
 }
