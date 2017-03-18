@@ -1,6 +1,7 @@
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TexasHoldEm", "TexasHoldEm.csproj", "{FDD32042-06BB-4DA7-994F-B2B1A9BAC71E}"
 EndProject
@@ -11,8 +12,13 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FDD32042-06BB-4DA7-994F-B2B1A9BAC71E}.Release_beta|Any CPU.ActiveCfg = Release_beta|Any CPU
 		{FDD32042-06BB-4DA7-994F-B2B1A9BAC71E}.Release_beta|Any CPU.Build.0 = Release_beta|Any CPU
+		{7E659F97-F18D-4D72-824B-74A7FF23CBBB}.Release_beta|Any CPU.ActiveCfg = Release_beta|Any CPU
+		{7E659F97-F18D-4D72-824B-74A7FF23CBBB}.Release_beta|Any CPU.Build.0 = Release_beta|Any CPU
+		{25564396-363E-4F07-A97F-CA4F800F52C2}.Release_beta|Any CPU.ActiveCfg = Release_beta|Any CPU
+		{25564396-363E-4F07-A97F-CA4F800F52C2}.Release_beta|Any CPU.Build.0 = Release_beta|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
 	EndGlobalSection
 EndGlobal
