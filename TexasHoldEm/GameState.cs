@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TexasHoldEm
+namespace TexasHoldEm.Client
 {
-	class GameState
+	public static class GameState
 	{
+		public static TexasHoldEmGameState THGS;
 	}
 }

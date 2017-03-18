@@ -36,6 +36,9 @@ namespace TexasHoldEm.Client
 
         public override void CalculateMove(TexasHoldEmGameState state)
         {
+
+            GameState.THGS = state;
+            
             #region Helper Values
             // calculate min bet
             var minBet = (state.OpponentRoundBetTotal ?? 0) - (state.PlayerRoundBetTotal ?? 0); // If you try and bet less than minBet, that will be a Fold
