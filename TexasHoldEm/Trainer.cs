@@ -13,7 +13,7 @@ public class Trainer {
 	public Trainer(int popSize = 10) {
 		this.popSize = popSize;
 		for (int i = 0; i < popSize; i++) {
-			pop[i] = new Chromosome<double>();
+			pop[i] = new Chromosome<double>(10);
 		}
 	}
 	
