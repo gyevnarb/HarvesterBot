@@ -76,7 +76,7 @@ namespace TexasHoldEm.Client
             var potAfterPreviousRound = state.PotAfterPreviousRound;
             var responseDeadline = state.ResponseDeadline;
             #endregion
-            
+
             #region Helper Methods
             #region Random Helpers
             // next line of code will return 1 upto 10 including 10 value
