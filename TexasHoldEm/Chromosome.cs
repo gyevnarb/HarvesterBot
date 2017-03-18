@@ -28,4 +28,11 @@ public class Chromosome<Type> {
 		data[index] = value;
 	}
 
+	public Type[] getLeft(double percent) {
+	
+	}
+
+	public Type[] getRight(double percent) {
+
+	}
 }
