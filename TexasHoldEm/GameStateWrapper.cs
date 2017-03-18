@@ -5,10 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AIGaming.Core.Games;
 
-namespace TexasHoldEm.Client
+public static class GameStateWrapper
 {
-	public static class GameStateWrapper
-	{
-		public static TexasHoldEmGameState THGS;
-	}
+	public static TexasHoldEmGameState THGS;
 }
