@@ -14,8 +14,9 @@ public class Trainer {
 
 	public Trainer(int popSize = 10) {
 		this.popSize = popSize;
+		pop = new List<Gene<double>>();
 		for (int i = 0; i < popSize; i++) {
-			pop[i] = new Gene<double>(10);
+			pop.Add(new Gene<double>(10));
 		}
 	}
 	
