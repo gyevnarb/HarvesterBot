@@ -29,7 +29,7 @@ public class Trainer {
 		
 	}
 
-	private Chromosome<double> crossover(Chromosome<double> geneA, Chromosome<double geneB) {
+	private Chromosome<double> crossover(Chromosome<double> geneA, Chromosome<double> geneB) {
 		double[] left = geneA.getLeft(crossoverSplit);
 		double[] right = geneB.getRight(1 - crossoverSplit);
 		double[] newData = new double[left.Length + right.Length];
