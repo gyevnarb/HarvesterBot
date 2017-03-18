@@ -6,14 +6,14 @@
 public class Trainer {
 	
 	private int popSize;
-	private Chromosome<double>[] pop;
+	private Gene<double>[] pop;
 	private int currentGene = 0;
 	private const double crossoverSplit = 0.5;
 
 	public Trainer(int popSize = 10) {
 		this.popSize = popSize;
 		for (int i = 0; i < popSize; i++) {
-			pop[i] = new Chromosome<double>(10);
+			pop[i] = new Gene<double>(10);
 		}
 	}
 	
@@ -21,7 +21,7 @@ public class Trainer {
 		return ++currentGene < popSize;
 	}
 
-	public Chromosome<double> getCurrentGene() {
+	public Gene<double> getCurrentGene() {
 		return this.pop[currentGene];
 	}
 
@@ -29,12 +29,12 @@ public class Trainer {
 		
 	}
 
-	private Chromosome<double> crossover(Chromosome<double> geneA, Chromosome<double> geneB) {
+	private Gene<double> crossover(Gene<double> geneA, Gene<double> geneB) {
 		double[] left = geneA.getLeft(crossoverSplit);
 		double[] right = geneB.getRight(1 - crossoverSplit);
 		double[] newData = new double[left.Length + right.Length];
 		left.CopyTo(newData, 0);
 		right.CopyTo(newData, left.Length);
-		return new Chromosome<double>(newData);
+		return new Gene<double>(newData);
 	}
 }
