@@ -106,7 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
+=======
     <Compile Include="APIInterface.cs" />
+>>>>>>> 5d5eb4a68bc9a9ecf77e5d245d79f5fd62fc5475
     <Compile Include="Bot.cs" />
     <Compile Include="Chromosome.cs" />
     <Compile Include="Game.cs" />
