@@ -10,7 +10,7 @@ public class Trainer {
 	private List<Gene> pop;
 	private int currentGene = 0;
 	private int generation = 1;
-	private const int geneSize = 10;
+	private const int geneSize = 6;
 	private const double crossoverSplit = 0.5;
 	private const double genepoolSize = 0.5;
 	private const double selectionSize = 0.5;
@@ -48,7 +48,22 @@ public class Trainer {
 	public void nextGeneration() {
 		generation++;
 		pop.Sort(geneSort);
+		writeGenes();
 		List<Gene> newPop = new List<Gene>(popSize);
+		breed(newPop, getGenepool());
+		pop = newPop;
+	}
+
+	private void writeGenes() {
+		foreach (Gene gene in pop) {
+			gene.outputData();
+		}
+	}
+
+	private void breed(List<Gene> newPop, List<Gene> genepool) {
+		for (int i = 0; i < popSize; i++) {
+			newPop.Add(crossover(genepool[rand.Next(0, genepool.Capacity)], genepool[rand.Next(0, genepool.Capacity)));
+		}
 	}
 
 	private static int geneSort(Gene geneA, Gene geneB) {

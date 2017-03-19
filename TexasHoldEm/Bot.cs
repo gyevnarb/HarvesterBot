@@ -14,7 +14,7 @@ public static class Bot {
 
 	public static int makeBet(Gene gene) {
 		// returns the ammount to bet
-		double betEval = gene.get(6) * (gene.get(2) * getSelfWinProb() - gene.get(3) * getEnemyWinProb()) * ((gene.get(4) * getEnemyWinProb() > 0.5) ? 0.0 : 1.0);
+		double betEval = gene.get(5) * (gene.get(2) * getSelfWinProb() - gene.get(3) * getEnemyWinProb()) * ((gene.get(4) * getEnemyWinProb() > 0.5) ? 0.0 : 1.0);
 		return ((int) betEval * (GameStateWrapper.maxBet() - GameStateWrapper.minBet())) + GameStateWrapper.minBet();
 	}
 
