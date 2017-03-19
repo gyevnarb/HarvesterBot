@@ -71,6 +71,7 @@ public class Trainer {
 	private void breed(List<Gene> newPop, List<Gene> genepool) {
 		if (keepAlpha)
 			newPop.Add(pop[0]);
+			newPop[0].setFitness(0);
 		for (int i = keepAlpha ? 1 : 0; i < popSize; i++) {
 			newPop.Add(crossover(genepool[rand.Next(0, genepool.Capacity)], genepool[rand.Next(0, genepool.Capacity)]));
 		}
@@ -107,8 +108,8 @@ public class Trainer {
 	}
 
 	private void mutateGenes() {
-		foreach (Gene gene in pop) {
-			gene.mutate(rand);
+		for(int i = (keepAlpha ? 1 : 0); i < pop.Capacity; i++) {
+			pop[i].mutate(rand);
 		}
 	}
 }

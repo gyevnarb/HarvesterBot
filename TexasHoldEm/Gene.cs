@@ -82,6 +82,10 @@ public class Gene
 		return fitness;
 	}
 
+	public void setFitness(double value) {
+	   fitness = value;
+	}
+
 	public void adjustFitness(int winnings)
 	{
 		if (winnings > 0)
