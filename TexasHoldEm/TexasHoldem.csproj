@@ -52,7 +52,7 @@
     <ApplicationIcon>aigaming.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>FC9A568CE16B0F723ED003AC346FD76779F24103</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>1ECEEC136E89D6BBD51DDE6B976EE7A4844E67E5</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>TexasHoldEm_TemporaryKey.pfx</ManifestKeyFile>
