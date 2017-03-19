@@ -4,18 +4,17 @@
 /// Summary description for Class1
 /// </summary>
 public static class Bot {
-	
 
-	
-
-	public static bool betOrFold(int currentBet) {
+	public static bool betOrFold(Gene gene) {
 		// True is bet, False is fold
-		return true;
+		double stateEval = gene.get(0) * getSelfWinProb() - gene.get(1) * getEnemyWinProb() + gene.get(2) * getPossibleWinnings() - gene.get(3) * getPossibleLoss();
+		return stateEval > 0.0;
 	}
 
-	public static int makeBet() {
+	public static int makeBet(Gene gene) {
 		// returns the ammount to bet
-		return 0;
+		double betEval = gene.get(6) * (gene.get(4) * getSelfWinProb() - gene.get(5) * getEnemyWinProb()) * ((gene.get(7) * getEnemyWinProb() > 0.5) ? 0.0 : 1.0);
+		return ((int) betEval * (GameStateWrapper.maxBet - GameStateWrapper.minBet)) + GameStateWrapper.minBet;
 	}
 
 	private static double getEnemyWinProb() {

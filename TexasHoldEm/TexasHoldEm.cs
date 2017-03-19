@@ -232,12 +232,13 @@ namespace TexasHoldEm.Client
 
                     trainer.getCurrentGene().adjustFitness(deltaStack);
 
-                    Trace.WriteLine($"Previous stack: {previousStack}");
-                    previousStack = playerStack;
                     gameCount++;
-                    Trace.WriteLine($"Current stack: {playerStack}");
-                    Trace.WriteLine($"Delta stack: {deltaStack.ToString()}");
-                    Trace.WriteLine($"Game count: {gameCount}");
+         //           Trace.WriteLine($"Previous stack: {previousStack}");
+         //           Trace.WriteLine($"Current stack: {playerStack}");
+         //           Trace.WriteLine($"Delta stack: {deltaStack.ToString()}");
+         //           Trace.WriteLine($"Game count: {gameCount}");
+                    previousStack = playerStack;
+
                 }
                 else if (trainer.nextGene())
                 {
@@ -258,14 +259,12 @@ namespace TexasHoldEm.Client
             // create move request
             var move = new TexasHoldEmMove();
 
-            move.Fold = !Bot.betOrFold(50); //TODO What is the value I need here?
-
-            // Bet the minimum and one in three times raise by 0, 10, 20, 30 or 40
-            move.BetSize = minBet + Bot.makeBet(); //TODO Should implement Bot.makeBet()
+            move.Fold = !Bot.betOrFold(trainer.getCurrentGene());
+            if (!move.Fold) move.BetSize = Bot.makeBet(trainer.getCurrentGene());
 
             // call server to process our move
             ClientMoved(move);
-
+            
         }
 
         #region Helper Methods

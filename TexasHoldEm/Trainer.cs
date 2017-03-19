@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Random;
-using System.Tuple;
 
 /// <summary>
 /// Summary description for Class1
@@ -12,30 +10,19 @@ public class Trainer {
 	private List<Gene> pop;
 	private int currentGene = 0;
 	private int generation = 1;
+	private const int geneSize = 10;
 	private const double crossoverSplit = 0.5;
 	private const double genepoolSize = 0.5;
 	private const double selectionSize = 0.5;
-	private const double mutateChance = 0.1;
-	private const double mutationRate = 0.5;
 
 	private Random rand;
 
 	public Trainer(int popSize = 10) {
 		this.popSize = popSize;
 		rand = new Random(Guid.NewGuid().GetHashCode());
-		pop = new List<Gene>();
+		pop = new List<Gene>(popSize);
 		for (int i = 0; i < popSize; i++) {
-			pop.Add(new Gene(popSize));
-		}
-		initPop();
-	}
-
-	private void initPop() {
-		// TODO: a better solution
-		foreach (Gene gene in pop) {
-			for (int i = 0; i < gene.getLength(); i++) {
-				gene.set(i, rand.NextDouble());
-			}
+			pop.Add(new Gene(geneSize, rand));
 		}
 	}
 
@@ -78,7 +65,7 @@ public class Trainer {
 	}
 
 	private Gene tournamentSelection(List<Gene> list) {
-		Gene mate = pop[rand.Next(1, popSize - 1];
+		Gene mate = pop[rand.Next(1, popSize - 1)];
 		return mate;
 	}
 
@@ -91,16 +78,7 @@ public class Trainer {
 
 	private void mutateGenes() {
 		foreach (Gene gene in pop) {
-			mutate(gene);
+			gene.mutate(rand);
 		}
 	}
-
-	private void mutate(Gene gene) {
-		for (int i = 0; i < gene.getLength(); i++) {
-			if (rand.NextDouble() < mutateChance) {
-				gene.set(i, gene.get(i) * (rand.Next(0, 2) == 0 ? mutationRate : -mutationRate));
-			}
-		}
-	}
-
 }
