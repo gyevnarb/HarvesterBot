@@ -47,7 +47,6 @@ namespace TexasHoldEm.Client
         public override void CalculateMove(TexasHoldEmGameState state)
         {
             Trace.WriteLine(state.Round);
-            LogWriter.clear();
             GameStateWrapper.THGS = state;
             
             #region Helper Values
@@ -225,6 +224,7 @@ namespace TexasHoldEm.Client
 
             if (state.Round == TexasHoldEmRound.Preflop)
             {
+                LogWriter.clear();
                 if (gameCount == 0) previousStack = playerStack;
 
                 if (gameCount <= TRAIN_ITERS)
