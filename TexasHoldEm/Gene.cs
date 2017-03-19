@@ -17,10 +17,9 @@ public class Gene
     public void outputData()
     {
         int i = 1;
-        LogWriter.writeData("Values\n");
-        foreach (double value in data)
-        {
-            LogWriter.writeData(i.ToString() + value + "\n");
+        LogWriter.writeData("Values:" + Environment.NewLine);
+        foreach (double value in data) {
+            LogWriter.writeData("\t" + i.ToString() + ": " + value + Environment.NewLine);
             i++;
         }
     }
