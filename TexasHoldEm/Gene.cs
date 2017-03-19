@@ -90,12 +90,12 @@ public class Gene
 
 	private double winFunction(int winnings)
 	{
-		return winnings;
+		return winnings ^ 2;
 	}
 
 	private double lossFunction(int winnings)
 	{
-		return -winnings;
+		return winnings^2;
 	}
 
 	public void mutate(Random rand)
