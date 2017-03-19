@@ -57,6 +57,9 @@ public static class Bot {
     private static double calculateStraightFlushChance()
     {
    
+
+        
+
         return 0.0;
 
     }
@@ -87,7 +90,14 @@ public static class Bot {
     }
     private static double calculateTwoChance()
     {
-        return 0.0;
+        if (GameStateWrapper.ourCard(0).Index == GameStateWrapper.ourCard(1).Index)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0.12;
+        }
 
     }
     private static double calculateOneChance()
