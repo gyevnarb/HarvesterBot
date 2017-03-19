@@ -52,7 +52,7 @@
     <ApplicationIcon>aigaming.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>694053CB21AB6FF17BFF4CDC66A25A4E8E9FA432</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FC9A568CE16B0F723ED003AC346FD76779F24103</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>TexasHoldEm_TemporaryKey.pfx</ManifestKeyFile>
@@ -176,7 +176,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="TexasHoldEm_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
