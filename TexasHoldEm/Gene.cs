@@ -62,7 +62,7 @@ public class Gene
 		int index = (int)(data.Capacity * percent);
 		if (index == 0)
 			throw new SystemException();
-		return data.GetRange(0, index - 1);
+		return data.GetRange(0, index);
 	}
 
 	public List<double> getRight(double percent)

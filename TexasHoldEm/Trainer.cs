@@ -24,8 +24,6 @@ public class Trainer {
 		for (int i = 0; i < popSize; i++) {
 			pop.Add(new Gene(geneSize, rand));
 		}
-		LogWriter.writeData("Initial population:" + Environment.NewLine);
-		writeGenes();
 	}
 
 	public int getGeneration() {
@@ -59,12 +57,14 @@ public class Trainer {
 		List<Gene> newPop = new List<Gene>(popSize);
 		breed(newPop, getGenepool());
 		pop = newPop;
+		mutateGenes();
 		LogWriter.writeData(">New population:" + Environment.NewLine);
 		writeGenes();
 	}
 
 	private void writeGenes() {
 		for (int i = 0; i < pop.Capacity; i++) {
+
 			LogWriter.writeData("Gene " + i + ":" + Environment.NewLine);
 			pop[i].outputData();
 		}
@@ -86,9 +86,10 @@ public class Trainer {
 	}
 
 	private List<Gene> getGenepool() {
-		List<Gene> genepool = new List<Gene>((int) (popSize * genepoolSize));
+		int size = (int) (genepoolSize * popSize);
+		List<Gene> genepool = new List<Gene>(size);
 		for (int i = 0; i < genepool.Capacity; i++) {
-			genepool[i] = crossover(tournamentSelection(pop), tournamentSelection(pop));
+			genepool.Add(tournamentSelection(pop));
 		}
 		return genepool;
 	}
