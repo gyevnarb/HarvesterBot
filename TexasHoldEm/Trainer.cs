@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
-
-=======
->>>>>>> a1042ec4588f180aa03457e35ff0c6bfe50cc0da
 
 /// <summary>
 /// Summary description for Class1
