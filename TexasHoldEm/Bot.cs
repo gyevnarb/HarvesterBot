@@ -22,7 +22,17 @@ public static class Bot {
         return 0.50;
 	}
 
-	private static double getSelfWinProb() {
+    private static int PossibleWin()
+    {
+        return 2000;
+    }
+    private static int PossibleLoss()
+    {
+        //not 2000
+        return 2000;
+    }
+
+    private static double getSelfWinProb() {
         // Returns the probability of us winning
 
         
