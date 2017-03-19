@@ -5,18 +5,18 @@ using System.Random;
 /// <summary>
 /// Summary description for Class1
 /// </summary>
-public class Gene<Type>
+public class Gene
 {
 
-	private List<Type> data;
+	private List<double> data;
 	private double fitness = 0.0;
 
 	public Gene(int size)
 	{
-		data = new List<Type>(size);
+		data = new List<double>(size);
 	}
 
-	public Gene(List<Type> data)
+	public Gene(List<double> data)
 	{
 		this.data = data;
 	}
@@ -26,19 +26,19 @@ public class Gene<Type>
 		return data.Capacity;
 	}
 
-	public Type get(int index)
+	public double get(int index)
 	{
 		return data[index];
 	}
 
-	public void set(int index, Type value)
+	public void set(int index, double value)
 	{
 		data[index] = value;
 	}
 
 	/// THIS SHIT BELOW MIGHT BREAK BY WRITING OVER ARRAY BOUNDS
 
-	public List<Type> getLeft(double percent)
+	public List<double> getLeft(double percent)
 	{
 		if (percent > 1.0 || percent < 0.0)
 			throw new System.Exception();
@@ -48,7 +48,7 @@ public class Gene<Type>
 		return data.GetRange(0, index - 1);
 	}
 
-	public List<Type> getRight(double percent)
+	public List<double> getRight(double percent)
 	{
 		if (percent > 1.0 || percent < 0.0)
 			throw new System.Exception();
@@ -80,5 +80,4 @@ public class Gene<Type>
 	{
 		return winnings ^ 2;
 	}
-
 }

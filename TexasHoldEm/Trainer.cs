@@ -9,27 +9,30 @@ using System.Tuple;
 public class Trainer {
 
 	private int popSize;
-	private List<Gene<double>> pop;
+	private List<Gene> pop;
 	private int currentGene = 0;
 	private int generation = 1;
 	private const double crossoverSplit = 0.5;
 	private const double genepoolSize = 0.5;
 	private const double selectionSize = 0.5;
+	private const double mutateChance = 0.1;
+	private const double mutationRate = 0.5;
+
 	private Random rand;
 
 	public Trainer(int popSize = 10) {
 		this.popSize = popSize;
 		rand = new Random(Guid.NewGuid().GetHashCode());
-		pop = new List<Gene<double>>();
+		pop = new List<Gene>();
 		for (int i = 0; i < popSize; i++) {
-			pop.Add(new Gene<double>(popSize));
+			pop.Add(new Gene(popSize));
 		}
 		initPop();
 	}
 
 	private void initPop() {
 		// TODO: a better solution
-		foreach (Gene<double> gene in pop) {
+		foreach (Gene gene in pop) {
 			for (int i = 0; i < gene.getLength(); i++) {
 				gene.set(i, rand.NextDouble());
 			}
@@ -47,17 +50,17 @@ public class Trainer {
 		return false;
 	}
 
-	public Gene<double> getCurrentGene() {
+	public Gene getCurrentGene() {
 		return this.pop[currentGene];
 	}
 
 	public void nextGeneration() {
 		generation++;
 		pop.Sort(geneSort);
-		List<Gene<double>> newPop = new List<Gene<double>>(popSize);
+		List<Gene> newPop = new List<Gene>(popSize);
 	}
 
-	private static int geneSort(Gene<double> geneA, Gene<double> geneB) {
+	private static int geneSort(Gene geneA, Gene geneB) {
 		double diff = geneA.getFitness() - geneB.getFitness();
 		if (diff < 0)
 			return 1;
@@ -66,23 +69,38 @@ public class Trainer {
 		return 0;
 	}
 
-	private List<Gene<double>> getGenepool() {
-		List<Gene<double>> genepool = new List<Gene<double>>((int) (popSize * genepoolSize));
+	private List<Gene> getGenepool() {
+		List<Gene> genepool = new List<Gene>((int) (popSize * genepoolSize));
 		for (int i = 0; i < genepool.Capacity; i++) {
 			genepool[i] = crossover(tournamentSelection(pop), tournamentSelection(pop));
 		}
 		return genepool;
 	}
 
-	private Gene<double> tournamentSelection(List<Gene<double>> list) {
-		Gene<double> mate = pop[rand.Next(1, popSize - 1];
+	private Gene tournamentSelection(List<Gene> list) {
+		Gene mate = pop[rand.Next(1, popSize - 1];
 		return mate;
 	}
 
-	private Gene<double> crossover(Gene<double> geneA, Gene<double> geneB) {
+	private Gene crossover(Gene geneA, Gene geneB) {
 		List<double> left = geneA.getLeft(crossoverSplit);
 		List<double> right = geneB.getRight(1 - crossoverSplit);
 		left.AddRange(right);
-		return new Gene<double>(left);
+		return new Gene(left);
 	}
+
+	private void mutateGenes() {
+		foreach (Gene gene in pop) {
+			mutate(gene);
+		}
+	}
+
+	private void mutate(Gene gene) {
+		for (int i = 0; i < gene.getLength(); i++) {
+			if (rand.NextDouble() < mutateChance) {
+				gene.set(i, gene.get(i) * (rand.Next(0, 2) == 0 ? mutationRate : -mutationRate));
+			}
+		}
+	}
+
 }
