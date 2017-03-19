@@ -10,6 +10,7 @@ public class Trainer {
 	private List<Gene> pop;
 	private int currentGene = 0;
 	private int generation = 1;
+	private const int geneSize = 10;
 	private const double crossoverSplit = 0.5;
 	private const double genepoolSize = 0.5;
 	private const double selectionSize = 0.5;
@@ -19,19 +20,9 @@ public class Trainer {
 	public Trainer(int popSize = 10) {
 		this.popSize = popSize;
 		rand = new Random(Guid.NewGuid().GetHashCode());
-		pop = new List<Gene>();
+		pop = new List<Gene>(popSize);
 		for (int i = 0; i < popSize; i++) {
-			pop.Add(new Gene(popSize));
-		}
-		initPop();
-	}
-
-	private void initPop() {
-		// TODO: a better solution
-		foreach (Gene gene in pop) {
-			for (int i = 0; i < gene.getLength(); i++) {
-				gene.set(i, rand.NextDouble());
-			}
+			pop.Add(new Gene(geneSize, rand));
 		}
 	}
 
