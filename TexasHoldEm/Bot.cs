@@ -19,8 +19,8 @@ public static class Bot {
 	}
 
 	private static double getEnemyWinProb() {
-		// Returns the probability of the enemy winning
-		return 0.0;
+        // Returns the probability of the enemy winning
+        return 0.50;
 	}
 
 	private static double getSelfWinProb() {
@@ -48,9 +48,9 @@ public static class Bot {
         double theirOneChance;
         double theirNoChance;
 
-        
-   
-        return 0.0;
+
+
+        return 0.50;
 	}
 
     //leaving out royal flush because yoloswag420#blazeit
@@ -88,7 +88,7 @@ public static class Bot {
         return 0.0;
 
     }
-    private static double calculateTwoChance()
+    private static double calculateOneChance()
     {
         if (GameStateWrapper.ourCard(0).Index == GameStateWrapper.ourCard(1).Index)
         {
@@ -96,13 +96,109 @@ public static class Bot {
         }
         else
         {
-            return 0.12;
+
+            if (GameStateWrapper.THGS.Round.Equals("Preflop"))
+            {
+                return 0.4874;
+            }
+            else if (GameStateWrapper.THGS.Round.Equals("Flop") && hasOneChance("Flop"))
+            {
+                return 0.2882;
+            }
+            else if (GameStateWrapper.THGS.Round.Equals("Turn") && hasOneChance("Turn"))
+            {
+                return 0.2414;
+            }
+            else if (GameStateWrapper.THGS.Round.Equals("River") && hasOneChance("River"))
+            {
+                return 0;
+            }
+            else return 1;
+
+
+
+
         }
 
     }
-    private static double calculateOneChance()
+
+    private static bool hasOneChance(string state)
     {
-        return 0.0;
+               if (state == "Flop")
+        {
+            if (GameStateWrapper.ourCard(1) == GameStateWrapper.tableCard(1) || GameStateWrapper.ourCard(1) == GameStateWrapper.tableCard(2)
+                    || GameStateWrapper.ourCard(1) == GameStateWrapper.tableCard(3) || GameStateWrapper.ourCard(2) == GameStateWrapper.tableCard(1)
+                    || GameStateWrapper.ourCard(2) == GameStateWrapper.tableCard(2) || GameStateWrapper.ourCard(1) == GameStateWrapper.tableCard(3))
+            {
+                return false;
+            }
+
+            else return true;
+
+
+        }
+
+        else if (state == "Turn")
+        {
+            if (GameStateWrapper.ourCard(1) == GameStateWrapper.tableCard(4) || GameStateWrapper.ourCard(2) == GameStateWrapper.tableCard(4))
+
+            {
+                return false;
+            }
+
+            else return true;
+
+
+        }
+
+        else if (state == "River")
+        {
+            if (GameStateWrapper.ourCard(1) == GameStateWrapper.tableCard(5) || GameStateWrapper.ourCard(2) == GameStateWrapper.tableCard(5))
+
+            {
+                return false;
+            }
+
+            else return true;
+
+
+        }
+        else return false;
+
+
+
+    }
+
+
+    private static double calculateTwoChance()
+    {
+       
+
+            if (GameStateWrapper.THGS.Round.Equals("Preflop") && GameStateWrapper.ourCard(1) == GameStateWrapper.ourCard(2))
+        {
+            return;
+        }
+            {
+                return 0.4874;
+            }
+            else if (GameStateWrapper.THGS.Round.Equals("Flop") && hasOneChance("Flop"))
+            {
+                return 0.2882;
+            }
+            else if (GameStateWrapper.THGS.Round.Equals("Turn") && hasOneChance("Turn"))
+            {
+                return 0.2414;
+            }
+            else if (GameStateWrapper.THGS.Round.Equals("River") && hasOneChance("River"))
+            {
+                return 0;
+            }
+            else return 1;
+
+
+
+
+        
 
     }
 
