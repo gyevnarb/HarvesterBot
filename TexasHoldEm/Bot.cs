@@ -8,12 +8,12 @@ public static class Bot {
 
 	
 
-	public static bool betOrFold(int currentBet) {
+	public static bool betOrFold(Gene gene) {
 		// True is bet, False is fold
 		return true;
 	}
 
-	public static int makeBet() {
+	public static int makeBet(Gene gene) {
 		// returns the ammount to bet
 		return 0;
 	}
