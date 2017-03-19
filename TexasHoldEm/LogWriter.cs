@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 public static class LogWriter {
-	private static String path = "output.log";
+	private static string path = "output.log";
 
 	public static void clear() {
 		File.Delete(path);
@@ -17,4 +17,3 @@ public static class LogWriter {
 	}
 
 }
-

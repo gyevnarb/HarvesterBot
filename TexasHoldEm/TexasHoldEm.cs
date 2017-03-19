@@ -232,7 +232,7 @@ namespace TexasHoldEm.Client
 
                 if (gameCount <= TRAIN_ITERS)
                 {
-					LogWriter.writeData("Iteration " + gameCount + ":\n");
+					LogWriter.writeData("Iteration " + gameCount + ":" + Environment.NewLine);
                     deltaStack = playerStack - previousStack;
 
                     trainer.getCurrentGene().adjustFitness(deltaStack);
