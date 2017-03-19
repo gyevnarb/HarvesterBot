@@ -87,6 +87,7 @@ public static class Bot {
         return 0.0;
 
     }
+    /*
     private static double calculateOneChance()
     {
         if (GameStateWrapper.ourCard(0).Index == GameStateWrapper.ourCard(1).Index)
@@ -203,7 +204,7 @@ public static class Bot {
 
 
 
-
+    */
 
 
 }
