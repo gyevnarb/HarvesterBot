@@ -28,7 +28,7 @@ public static class Bot {
 
 	private static double shownValuation(Gene gene, int state) {
 		double sum = 0;
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < state; i++) {
 			sum += gene.get(6 + (2 * i)) * similarity(GameStateWrapper.tableCard(i + 1), GameStateWrapper.ourCard(1)) + gene.get(7 + (2 * i)) * similarity(GameStateWrapper.tableCard(i + 1), GameStateWrapper.ourCard(2));
 		}
 		return sum;
