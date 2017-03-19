@@ -24,6 +24,8 @@ namespace TexasHoldEm.Client
 
         int deltaStack = 0;
 
+        bool temp = false;
+
         public override GameType GameType
         {
             get { return GameType.TexasHoldEm; }
@@ -48,6 +50,8 @@ namespace TexasHoldEm.Client
         {
             Trace.WriteLine(state.Round);
             GameStateWrapper.THGS = state;
+
+            if (!temp) { LogWriter.clear(); temp = true; }
             
             #region Helper Values
             // calculate min bet
@@ -224,7 +228,6 @@ namespace TexasHoldEm.Client
 
             if (state.Round == TexasHoldEmRound.Preflop)
             {
-                LogWriter.clear();
                 if (gameCount == 0) previousStack = playerStack;
 
                 if (gameCount <= TRAIN_ITERS)
