@@ -12,7 +12,7 @@ namespace TexasHoldEm.Client
 {
     public class TexasHoldEm : ClientGameBase<TexasHoldEmClient, TexasHoldEmDesk, TexasHoldEmGameState, TexasHoldEmStartState>
     {
-        const int TRAIN_ITERS = 100;
+        const int TRAIN_ITERS = 5;
 
         readonly Random _random = new Random();
 
@@ -225,7 +225,7 @@ namespace TexasHoldEm.Client
             {
                 if (gameCount == 0) previousStack = playerStack;
 
-                if (gameCount <= TRAIN_ITERS)
+                if (gameCount < TRAIN_ITERS)
                 {
 					//LogWriter.writeData("Iteration " + gameCount + ":" + Environment.NewLine);
                     deltaStack = playerStack - previousStack;
@@ -233,6 +233,7 @@ namespace TexasHoldEm.Client
                     trainer.getCurrentGene().adjustFitness(deltaStack);
 
                     gameCount++;
+					Console.Out.WriteLine("ITERATION: " + gameCount);
          //           Trace.WriteLine($"Previous stack: {previousStack}");
          //           Trace.WriteLine($"Current stack: {playerStack}");
          //           Trace.WriteLine($"Delta stack: {deltaStack.ToString()}");
