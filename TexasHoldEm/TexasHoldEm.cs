@@ -259,10 +259,8 @@ namespace TexasHoldEm.Client
             // create move request
             var move = new TexasHoldEmMove();
 
-            move.Fold = !Bot.betOrFold(trainer.getCurrentGene()); //TODO What is the value I need here?
-
-			// Bet the minimum and one in three times raise by 0, 10, 20, 30 or 40
-            move.BetSize = Bot.makeBet(trainer.getCurrentGene()); //TODO Should implement Bot.makeBet()
+            move.Fold = !Bot.betOrFold(trainer.getCurrentGene());
+            if (!move.Fold) move.BetSize = Bot.makeBet(trainer.getCurrentGene());
 
             // call server to process our move
             ClientMoved(move);
