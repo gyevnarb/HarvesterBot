@@ -123,6 +123,7 @@
     <Compile Include="Bot.cs" />
     <Compile Include="GameStateWrapper.cs" />
     <Compile Include="Gene.cs" />
+    <Compile Include="GeneReadWriter.cs" />
     <Compile Include="LogWriter.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="TexasHoldEm.cs" />
