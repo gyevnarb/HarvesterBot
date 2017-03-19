@@ -24,6 +24,8 @@ public class Trainer {
 		for (int i = 0; i < popSize; i++) {
 			pop.Add(new Gene(geneSize, rand));
 		}
+		LogWriter.writeData("Initial population:" + Environment.NewLine);
+		writeGenes();
 	}
 
 	public int getGeneration() {
@@ -52,6 +54,8 @@ public class Trainer {
 		List<Gene> newPop = new List<Gene>(popSize);
 		breed(newPop, getGenepool());
 		pop = newPop;
+		LogWriter.writeData(">New population:" + Environment.NewLine);
+		writeGenes();
 	}
 
 	private void writeGenes() {
