@@ -47,6 +47,7 @@ namespace TexasHoldEm.Client
         public override void CalculateMove(TexasHoldEmGameState state)
         {
             Trace.WriteLine(state.Round);
+            LogWriter.clear();
             GameStateWrapper.THGS = state;
             
             #region Helper Values
