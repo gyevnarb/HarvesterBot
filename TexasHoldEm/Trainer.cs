@@ -32,7 +32,6 @@ public class Trainer {
 
 	public bool nextGene() {
 		if(++currentGene < popSize) {
-			LogWriter.writeData("Currently on gene (" + currentGene + "/" + (popSize - 1) + ")" + Environment.NewLine);
 			return true;
 		}
 		LogWriter.writeData("Currently on gene (" + currentGene + "/" + (popSize - 1) + ")" + Environment.NewLine);
@@ -49,7 +48,7 @@ public class Trainer {
 	}
 
 	public void nextGeneration() {
-		LogWriter.writeData(Environment.NewLine + "\t<GENERATING NEW POPULATION>" + Environment.NewLine);
+		LogWriter.writeData(Environment.NewLine + "\t<GENERATING NEW POPULATION>" + Environment.NewLine + Environment.NewLine);
 		generation++;
 		pop.Sort(geneSort);
 		LogWriter.writeData(">Old population:" + Environment.NewLine);

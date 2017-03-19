@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 public static class LogWriter {
-	private static string path = "output.log";
+	private static string path = "output-" + DateTime.Now.ToString("hhmmss") + ".log";
 
 	public static void clear() {
 		File.Delete(path);
