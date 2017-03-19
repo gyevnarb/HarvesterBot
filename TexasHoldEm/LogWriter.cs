@@ -8,8 +8,12 @@ using System.IO;
 public static class LogWriter {
 	private static String path = "output.log";
 
+	public static void clear() {
+		File.Delete(path);
+	}
+
 	public static void writeData(String data) {
-		File.WriteAllText(path, data);
+		File.AppendAllText(path, data);
 	}
 
 }
