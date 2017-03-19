@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AIGaming.Core.Games;
+using System;
 
 /// <summary>
 /// Summary description for Class1
@@ -36,9 +37,9 @@ public static class Bot {
         // Returns the probability of us winning
 
         
-        double ourStraightFlushChance;
-        double ourFourKindChance;
-        double ourFullHouseChance;
+        double ourStraightFlushChance = calculateStraightFlushChance();
+        double ourFourKindChance = calculateFourKindChance();
+        double ourFullHouseChance = calculateFullHouseChance();
         double ourFlushChance;
         double ourStraightChance;
         double ourThreeKindChance;
@@ -65,59 +66,166 @@ public static class Bot {
     //leaving out royal flush because yoloswag420#blazeit
     private static double calculateStraightFlushChance()
     {
-   
 
-        
+        if (GameStateWrapper.THGS.Round.Equals("Preflop"))
+        {
+            return 0.0000139;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Flop"))
+        {
+            return 0.0000080;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Turn"))
+        {
+            return 0.0000070;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("River"))
+        {
+            return 0.9999;
+        }
+        else return 1;
 
-        return 0.0;
+
 
     }
     private static double calculateFourKindChance()
     {
-        return 0.0;
+
+        if (GameStateWrapper.THGS.Round.Equals("Preflop"))
+        {
+            return 0.00024;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Flop"))
+        {
+            return 0.00015;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Turn"))
+        {
+            return 0.00013;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("River"))
+        {
+            return 0.9999;
+        }
+        else return 1;
+
+
 
     }
     private static double calculateFullHouseChance()
     {
-        return 0.0;
+
+
+        if (GameStateWrapper.THGS.Round.Equals("Preflop"))
+        {
+            return 0.001441;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Flop"))
+        {
+            return 0.0008;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Turn"))
+        {
+            return 0.0007;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("River"))
+        {
+            return 0.9999;
+        }
+        else return 1;
+
 
     }
-    private static double calculateFlashChance()
+    private static double calculateFlushChance()
     {
-        return 0.0;
+
+        if (GameStateWrapper.THGS.Round.Equals("Preflop"))
+        {
+            return 0.001965;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Flop"))
+        {
+            return 0.0012;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Turn"))
+        {
+            return 0.0011;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("River"))
+        {
+            return 0.9999;
+        }
+        else return 1;
+
 
     }
     private static double calculateStraightChance()
     {
-        return 0.0;
+
+        if (GameStateWrapper.THGS.Round.Equals("Preflop"))
+        {
+            return 0.0039;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Flop"))
+        {
+            return 0.0023;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Turn"))
+        {
+            return 0.002;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("River"))
+        {
+            return 0.99;
+        }
+        else return 1;
+
 
     }
     private static double calculateThreeKindChance()
     {
-        return 0.0;
+
+        if (GameStateWrapper.THGS.Round.Equals("Preflop"))
+        {
+            return 0.021128;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Flop"))
+        {
+            return 0.013;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("Turn"))
+        {
+            return 0.01;
+        }
+        else if (GameStateWrapper.THGS.Round.Equals("River"))
+        {
+            return 0.97;
+        }
+        else return 1;
+
 
     }
-    /*
+
     private static double calculateOneChance()
     {
-        if (GameStateWrapper.ourCard(0).Index == GameStateWrapper.ourCard(1).Index)
+        if (GameStateWrapper.ourCard(1).Index == GameStateWrapper.ourCard(2).Index)
         {
             return 1;
         }
         else
         {
 
-            if (GameStateWrapper.THGS.Round.Equals("Preflop"))
+            if (GameStateWrapper.THGS.Round == TexasHoldEmRound.Preflop)
             {
-                return 0.4874;
+                return 0.422;
             }
             else if (GameStateWrapper.THGS.Round.Equals("Flop") && hasOneChance("Flop"))
             {
-                return 0.2882;
+                return 0.23;
             }
             else if (GameStateWrapper.THGS.Round.Equals("Turn") && hasOneChance("Turn"))
             {
-                return 0.2414;
+                return 0.19;
             }
             else if (GameStateWrapper.THGS.Round.Equals("River") && hasOneChance("River"))
             {
@@ -184,24 +292,21 @@ public static class Bot {
     {
        
 
-            if (GameStateWrapper.THGS.Round.Equals("Preflop") && GameStateWrapper.ourCard(1) == GameStateWrapper.ourCard(2))
-        {
-            return;
-        }
+            if (GameStateWrapper.THGS.Round.Equals("Preflop"))
             {
-                return 0.4874;
+            return 0.047;
             }
-            else if (GameStateWrapper.THGS.Round.Equals("Flop") && hasOneChance("Flop"))
+            else if (GameStateWrapper.THGS.Round.Equals("Flop"))
             {
-                return 0.2882;
+                return 0.025;
             }
-            else if (GameStateWrapper.THGS.Round.Equals("Turn") && hasOneChance("Turn"))
+            else if (GameStateWrapper.THGS.Round.Equals("Turn"))
             {
-                return 0.2414;
+                return 0.02;
             }
-            else if (GameStateWrapper.THGS.Round.Equals("River") && hasOneChance("River"))
+            else if (GameStateWrapper.THGS.Round.Equals("River"))
             {
-                return 0;
+                return 0.92;
             }
             else return 1;
 
@@ -214,7 +319,7 @@ public static class Bot {
 
 
 
-    */
+    
 
 
 }
