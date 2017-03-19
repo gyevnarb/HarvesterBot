@@ -9,6 +9,10 @@ public class Gene
 
 	private List<double> data;
 	private double fitness = 0.0;
+	private const double mutateChance = 0.1;
+	private const double mutationRate = 0.5;
+	private const double upperBound = 1.0;
+	private const double lowerBound = 0.0;
 
 	public Gene(int size)
 	{
@@ -78,5 +82,20 @@ public class Gene
 	private double lossFunction(int winnings)
 	{
 		return winnings ^ 2;
+	}
+
+	public void mutate(Random rand)
+	{
+		for (int i = 0; i < data.Capacity; i++)
+		{
+			if (rand.NextDouble() < mutateChance)
+			{
+				data[i] *= (rand.Next(0, 2) == 0 ? mutationRate : -mutationRate);
+				if (data[i] > upperBound)
+					data[i] = upperBound;
+				else if(data[i] < lowerBound)
+					data[i] = lowerBound;
+			}
+		}
 	}
 }

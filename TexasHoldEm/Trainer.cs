@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a1042ec4588f180aa03457e35ff0c6bfe50cc0da
 
 /// <summary>
 /// Summary description for Class1
@@ -14,8 +17,6 @@ public class Trainer {
 	private const double crossoverSplit = 0.5;
 	private const double genepoolSize = 0.5;
 	private const double selectionSize = 0.5;
-	private const double mutateChance = 0.1;
-	private const double mutationRate = 0.5;
 
 	private Random rand;
 
@@ -90,16 +91,7 @@ public class Trainer {
 
 	private void mutateGenes() {
 		foreach (Gene gene in pop) {
-			mutate(gene);
+			gene.mutate(rand);
 		}
 	}
-
-	private void mutate(Gene gene) {
-		for (int i = 0; i < gene.getLength(); i++) {
-			if (rand.NextDouble() < mutateChance) {
-				gene.set(i, gene.get(i) * (rand.Next(0, 2) == 0 ? mutationRate : -mutationRate));
-			}
-		}
-	}
-
 }

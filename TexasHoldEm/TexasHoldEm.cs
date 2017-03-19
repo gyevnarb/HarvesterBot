@@ -238,6 +238,7 @@ namespace TexasHoldEm.Client
                     Trace.WriteLine($"Delta stack: {deltaStack.ToString()}");
                     Trace.WriteLine($"Game count: {gameCount}");
                     previousStack = playerStack;
+
                 }
                 else if (trainer.nextGene())
                 {
