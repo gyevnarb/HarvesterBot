@@ -26,45 +26,78 @@ public static class Bot {
 	private static double getSelfWinProb() {
         // Returns the probability of us winning
 
-        double ourRoyalFlushChance = calculateRoyalFlushChance();
+        
         double ourStraightFlushChance;
         double ourFourKindChance;
         double ourFullHouseChance;
         double ourFlushChance;
         double ourStraightChance;
-        double ourThreeChance;
+        double ourThreeKindChance;
         double ourTwoChance;
         double ourOneChance;
         double ourNoChance;
 
-        double theirRoyalFlushChance;
+        
         double theirStraightFlushChance;
         double theirFourKindChance;
         double theirFullHouseChance;
         double theirFlushChance;
         double theirStraightChance;
-        double theirThreeChance;
+        double theirThreeKindChance;
         double theirTwoChance;
         double theirOneChance;
         double theirNoChance;
 
         
-     if (true)
+   
         return 0.0;
 	}
 
-
-    private static double  calculateRoyalFlushChance() {
-
-
-
-    
-       return 0.0;
-
+    //leaving out royal flush because yoloswag420#blazeit
+    private static double calculateStraightFlushChance()
+    {
+   
+        return 0.0;
 
     }
-    
-    
+    private static double calculateFourKindChance()
+    {
+        return 0.0;
+
+    }
+    private static double calculateFullHouseChance()
+    {
+        return 0.0;
+
+    }
+    private static double calculateFlashChance()
+    {
+        return 0.0;
+
+    }
+    private static double calculateStraightChance()
+    {
+        return 0.0;
+
+    }
+    private static double calculateThreeKindChance()
+    {
+        return 0.0;
+
+    }
+    private static double calculateTwoChance()
+    {
+        return 0.0;
+
+    }
+    private static double calculateOneChance()
+    {
+        return 0.0;
+
+    }
+
+
+
 
 
 
