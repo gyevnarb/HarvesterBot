@@ -14,7 +14,7 @@ public static class Bot {
 
 	public static int makeBet(Gene gene) {
 		// returns the ammount to bet
-		double betEval = Math.Pow(gene.get(2) * gameValuation(gene) / 7.5, 3);
+		double betEval = Math.Pow(gene.get(2) * gameValuation(gene) / 7.5, 2);
 		return ((int) betEval * (GameStateWrapper.maxBet() - GameStateWrapper.minBet())) + GameStateWrapper.minBet();
 	}
 
