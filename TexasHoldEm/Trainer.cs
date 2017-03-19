@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Random;
-using System.Tuple;
+
 
 /// <summary>
 /// Summary description for Class1
@@ -78,7 +77,7 @@ public class Trainer {
 	}
 
 	private Gene tournamentSelection(List<Gene> list) {
-		Gene mate = pop[rand.Next(1, popSize - 1];
+		Gene mate = pop[rand.Next(1, popSize - 1)];
 		return mate;
 	}
 

@@ -232,12 +232,12 @@ namespace TexasHoldEm.Client
 
                     trainer.getCurrentGene().adjustFitness(deltaStack);
 
-                    Trace.WriteLine($"Previous stack: {previousStack}");
-                    previousStack = playerStack;
                     gameCount++;
+                    Trace.WriteLine($"Previous stack: {previousStack}");
                     Trace.WriteLine($"Current stack: {playerStack}");
                     Trace.WriteLine($"Delta stack: {deltaStack.ToString()}");
                     Trace.WriteLine($"Game count: {gameCount}");
+                    previousStack = playerStack;
                 }
                 else if (trainer.nextGene())
                 {
@@ -265,7 +265,7 @@ namespace TexasHoldEm.Client
 
             // call server to process our move
             ClientMoved(move);
-
+            
         }
 
         #region Helper Methods

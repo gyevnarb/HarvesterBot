@@ -106,12 +106,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="APIInterface.cs" />
     <Compile Include="Bot.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="GameStateWrapper.cs" />
+    <Compile Include="Gene.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="TexasHoldEmDesk.xaml.cs">
       <DependentUpon>TexasHoldEmDesk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Trainer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
