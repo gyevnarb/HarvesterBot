@@ -59,8 +59,9 @@ public class Trainer {
 	}
 
 	private void writeGenes() {
-		foreach (Gene gene in pop) {
-			gene.outputData();
+		for (int i = 0; i < pop.Capacity; i++) {
+			LogWriter.writeData("Gene " + i + ":" + Environment.NewLine);
+			pop[i].outputData();
 		}
 	}
 
