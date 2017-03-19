@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+[Serializable]
 public static class GeneReadWriter {
 
 	public static Gene readGene(string path) {
