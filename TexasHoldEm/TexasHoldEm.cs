@@ -12,9 +12,17 @@ namespace TexasHoldEm.Client
 {
     public class TexasHoldEm : ClientGameBase<TexasHoldEmClient, TexasHoldEmDesk, TexasHoldEmGameState, TexasHoldEmStartState>
     {
+        const int TRAIN_ITERS = 100;
+
         readonly Random _random = new Random();
 
         Trainer trainer = new Trainer();
+
+        int gameCount = 0;
+
+        int previousStack = 0;
+
+        int deltaStack = 0;
 
         public override GameType GameType
         {
@@ -38,7 +46,7 @@ namespace TexasHoldEm.Client
 
         public override void CalculateMove(TexasHoldEmGameState state)
         {
-
+            Trace.WriteLine(state.Round);
             GameStateWrapper.THGS = state;
             
             #region Helper Values
@@ -81,6 +89,7 @@ namespace TexasHoldEm.Client
             var potAfterPreviousRound = state.PotAfterPreviousRound;
             var responseDeadline = state.ResponseDeadline;
             #endregion
+
 
             #region Helper Methods
             #region Random Helpers
@@ -212,7 +221,36 @@ namespace TexasHoldEm.Client
             string handRankDescription = handRank.HandRankDesc();
             #endregion
             #endregion
-            
+
+            if (state.Round == TexasHoldEmRound.Preflop)
+            {
+                if (gameCount == 0) previousStack = playerStack;
+
+                if (gameCount <= TRAIN_ITERS)
+                {
+                    deltaStack = playerStack - previousStack;
+
+                    trainer.getCurrentGene().adjustFitness(deltaStack);
+
+                    Trace.WriteLine($"Previous stack: {previousStack}");
+                    previousStack = playerStack;
+                    gameCount++;
+                    Trace.WriteLine($"Current stack: {playerStack}");
+                    Trace.WriteLine($"Delta stack: {deltaStack.ToString()}");
+                    Trace.WriteLine($"Game count: {gameCount}");
+                }
+                else if (trainer.nextGene())
+                {
+                    gameCount = 0;
+                }
+                else
+                {
+                    trainer.nextGeneration();
+                    gameCount = 0;
+                }
+            }
+
+
             // Wait time to allow user to see move.
             // This can be removed or thinking time set to 0 on client interface to play at full speed
             Thread.Sleep(ThinkingTime);
@@ -220,10 +258,10 @@ namespace TexasHoldEm.Client
             // create move request
             var move = new TexasHoldEmMove();
 
-
+            move.Fold = !Bot.betOrFold(50); //TODO What is the value I need here?
 
             // Bet the minimum and one in three times raise by 0, 10, 20, 30 or 40
-            move.BetSize = minBet + playerStack;//(_random.Next(3) == 0 ? 10 : 0) * _random.Next(5);
+            move.BetSize = minBet + Bot.makeBet(); //TODO Should implement Bot.makeBet()
 
             // call server to process our move
             ClientMoved(move);
