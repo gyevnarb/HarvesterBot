@@ -4,6 +4,8 @@ using System.Collections.Generic;
 /// <summary>
 /// Summary description for Class1
 /// </summary>
+/// 
+[Serializable()]
 public class Gene
 {
 
