@@ -14,6 +14,7 @@ public class Trainer {
 	private const double crossoverSplit = 0.5;
 	private const double genepoolSize = 0.5;
 	private const double selectionSize = 0.5;
+	private const bool keepAlpha = true;
 
 	private Random rand;
 
@@ -49,16 +50,13 @@ public class Trainer {
 
 	public void nextGeneration() {
 		LogWriter.writeData(Environment.NewLine + "\t<GENERATING NEW POPULATION>" + Environment.NewLine + Environment.NewLine);
-		generation++;
 		pop.Sort(geneSort);
-		LogWriter.writeData(">Old population:" + Environment.NewLine);
+		LogWriter.writeData(">Generation " + generation++ + ":" + Environment.NewLine);
 		writeGenes();
 		List<Gene> newPop = new List<Gene>(popSize);
 		breed(newPop, getGenepool());
 		pop = newPop;
 		mutateGenes();
-		LogWriter.writeData(">New population:" + Environment.NewLine);
-		writeGenes();
 	}
 
 	private void writeGenes() {
@@ -70,7 +68,9 @@ public class Trainer {
 	}
 
 	private void breed(List<Gene> newPop, List<Gene> genepool) {
-		for (int i = 0; i < popSize; i++) {
+		if (keepAlpha)
+			newPop.Add(pop[0]);
+		for (int i = keepAlpha ? 1 : 0; i < popSize; i++) {
 			newPop.Add(crossover(genepool[rand.Next(0, genepool.Capacity)], genepool[rand.Next(0, genepool.Capacity)]));
 		}
 	}
