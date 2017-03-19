@@ -62,7 +62,7 @@ public class Trainer {
 
 	private void breed(List<Gene> newPop, List<Gene> genepool) {
 		for (int i = 0; i < popSize; i++) {
-			newPop.Add(crossover(genepool[rand.Next(0, genepool.Capacity)], genepool[rand.Next(0, genepool.Capacity)));
+			newPop.Add(crossover(genepool[rand.Next(0, genepool.Capacity)], genepool[rand.Next(0, genepool.Capacity)]));
 		}
 	}
 
