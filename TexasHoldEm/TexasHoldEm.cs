@@ -12,7 +12,7 @@ namespace TexasHoldEm.Client
 {
     public class TexasHoldEm : ClientGameBase<TexasHoldEmClient, TexasHoldEmDesk, TexasHoldEmGameState, TexasHoldEmStartState>
     {
-        const int TRAIN_ITERS = 1;
+        const int TRAIN_ITERS = 5;
 
         readonly Random _random = new Random();
 
