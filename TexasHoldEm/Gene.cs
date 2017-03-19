@@ -14,6 +14,18 @@ public class Gene
 	private const double upperBound = 1.0;
 	private const double lowerBound = 0.0;
 
+    public void outputData()
+    {
+        int i = 1;
+        LogWriter.writeData("Values\n");
+        foreach (double value in data)
+        {
+            LogWriter.writeData(i.ToString() + value + "\n");
+            i++;
+        }
+    }
+
+
 	public Gene(int size, Random rand)
 	{
 		data = new List<double>(size);
