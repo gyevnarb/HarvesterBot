@@ -228,6 +228,7 @@ namespace TexasHoldEm.Client
 
                 if (gameCount <= TRAIN_ITERS)
                 {
+					LogWriter.writeData("Iteration " + gameCount + ":\n");
                     deltaStack = playerStack - previousStack;
 
                     trainer.getCurrentGene().adjustFitness(deltaStack);
@@ -242,10 +243,12 @@ namespace TexasHoldEm.Client
                 }
                 else if (trainer.nextGene())
                 {
+					trainer.getCurrentGene().outputData();
                     gameCount = 0;
                 }
                 else
                 {
+					Console.Out.Write("New Generation\n");
                     trainer.nextGeneration();
                     gameCount = 0;
                 }

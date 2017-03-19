@@ -37,6 +37,10 @@ public class Trainer {
 		return false;
 	}
 
+	public int getCurrentIndex() {
+		return currentGene;
+	}
+
 	public Gene getCurrentGene() {
 		return this.pop[currentGene];
 	}
