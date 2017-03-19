@@ -24,4 +24,10 @@ public static class GameStateWrapper
             default: return null;
         }
 	}
+    public static int minBet(){
+        return (THGS.OpponentRoundBetTotal ?? 0) - (THGS.PlayerRoundBetTotal ?? 0);
+    }
+    public static int maxBet(){
+        return minBet() + THGS.OpponentStack;
+    }
 }
