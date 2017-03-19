@@ -232,12 +232,12 @@ namespace TexasHoldEm.Client
 
                     trainer.getCurrentGene().adjustFitness(deltaStack);
 
-                    Trace.WriteLine($"Previous stack: {previousStack}");
+//                    Trace.WriteLine($"Previous stack: {previousStack}");
                     previousStack = playerStack;
                     gameCount++;
-                    Trace.WriteLine($"Current stack: {playerStack}");
-                    Trace.WriteLine($"Delta stack: {deltaStack.ToString()}");
-                    Trace.WriteLine($"Game count: {gameCount}");
+//                    Trace.WriteLine($"Current stack: {playerStack}");
+//                    Trace.WriteLine($"Delta stack: {deltaStack.ToString()}");
+//                    Trace.WriteLine($"Game count: {gameCount}");
                 }
                 else if (trainer.nextGene())
                 {
