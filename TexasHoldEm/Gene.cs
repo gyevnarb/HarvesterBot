@@ -21,7 +21,7 @@ public class Gene
             LogWriter.writeData("\t" + i.ToString() + ": " + value + Environment.NewLine);
             i++;
         }
-		LogWriter.writeData("\tFitness: " + fitness);
+		LogWriter.writeData("\tFitness: " + fitness + Environment.NewLine);
     }
 
 

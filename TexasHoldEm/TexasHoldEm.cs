@@ -24,8 +24,6 @@ namespace TexasHoldEm.Client
 
         int deltaStack = 0;
 
-        bool temp = false;
-
         public override GameType GameType
         {
             get { return GameType.TexasHoldEm; }
@@ -49,8 +47,6 @@ namespace TexasHoldEm.Client
         public override void CalculateMove(TexasHoldEmGameState state)
         {
             GameStateWrapper.THGS = state;
-
-            if (!temp) { LogWriter.clear(); temp = true; }
             
             #region Helper Values
             // calculate min bet
