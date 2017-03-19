@@ -51,6 +51,7 @@ public class Trainer {
 	public void nextGeneration() {
 		LogWriter.writeData(Environment.NewLine + "\t<GENERATING NEW POPULATION>" + Environment.NewLine + Environment.NewLine);
 		pop.Sort(geneSort);
+		GeneReadWriter.writeGene("fittest.gene", pop[0]);
 		LogWriter.writeData(">Generation " + generation++ + ":" + Environment.NewLine);
 		writeGenes();
 		List<Gene> newPop = new List<Gene>(popSize);
