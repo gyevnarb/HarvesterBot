@@ -30,4 +30,17 @@ public static class GameStateWrapper
     public static int maxBet(){
         return minBet() + THGS.OpponentStack;
     }
+
+	public static int shownCards() {
+		if (THGS.Round == TexasHoldEmRound.Preflop)
+			return 0;
+		if (THGS.Round == TexasHoldEmRound.Flop)
+			return 3;
+		if (THGS.Round == TexasHoldEmRound.Turn)
+			return 4;
+		if (THGS.Round == TexasHoldEmRound.River)
+			return 5;
+		return 5;
+	}
+
 }

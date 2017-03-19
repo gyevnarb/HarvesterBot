@@ -8,14 +8,41 @@ public static class Bot {
 
 	public static bool betOrFold(Gene gene) {
 		// True is bet, False is fold
-		double stateEval = gene.get(0) * getSelfWinProb() - gene.get(1) * getEnemyWinProb();// + gene.get(2) * getPossibleWin() - gene.get(3) * getPossibleLoss();
-		return stateEval > 0.0;
+		double stateEval = gene.get(0) * handValuation(gene);
+		return stateEval > gene.get(1);
 	}
 
 	public static int makeBet(Gene gene) {
 		// returns the ammount to bet
-		double betEval = gene.get(5) * (gene.get(2) * getSelfWinProb() - gene.get(3) * getEnemyWinProb()) * ((gene.get(4) * getEnemyWinProb() > 0.5) ? 0.0 : 1.0);
+		double betEval = gene.get(2) * gameValuation(gene);
 		return ((int) betEval * (GameStateWrapper.maxBet() - GameStateWrapper.minBet())) + GameStateWrapper.minBet();
+	}
+
+	public static double handValuation(Gene gene) {
+		return gene.get(3) * (double) GameStateWrapper.ourCard(1).Index + gene.get(4) * (double) GameStateWrapper.ourCard(2).Index + gene.get(5) * similarity(GameStateWrapper.ourCard(1), GameStateWrapper.ourCard(2));
+	}
+
+	private static double gameValuation(Gene gene) {
+		return handValuation(gene) + ((GameStateWrapper.shownCards() > 0) ? shownValuation(gene, GameStateWrapper.shownCards()) : 0.0);
+	}
+
+	private static double shownValuation(Gene gene, int state) {
+		double sum = 0;
+		for (int i = 0; i < 5; i++) {
+			sum += gene.get(6 + (2 * i)) * similarity(GameStateWrapper.tableCard(i + 1), GameStateWrapper.ourCard(1)) + gene.get(7 + (2 * i)) * similarity(GameStateWrapper.tableCard(i + 1), GameStateWrapper.ourCard(2));
+		}
+		return sum;
+	}
+
+	private static double similarity(Card cardA, Card cardB) {
+		if (cardA.Index.Equals(cardB.Index))
+			return 1.0;
+		if (cardA.Suit.Equals(cardB.Suit))
+			return 0.5 + Math.Abs(cardA.Index - cardB.Index) <= 1 ? 0.25 : 0.0;
+		if (Math.Abs(cardA.Index - cardB.Index) <= 1) {
+			return 0.5;
+		}
+		return 0.0;
 	}
 
 	private static double getEnemyWinProb() {

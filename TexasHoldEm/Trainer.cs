@@ -10,7 +10,7 @@ public class Trainer {
 	private List<Gene> pop;
 	private int currentGene = 0;
 	private int generation = 1;
-	private const int geneSize = 6;
+	private const int geneSize = 18;
 	private const double crossoverSplit = 0.5;
 	private const double genepoolSize = 0.5;
 	private const double selectionSize = 0.5;

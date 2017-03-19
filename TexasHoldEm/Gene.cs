@@ -95,7 +95,7 @@ public class Gene
 
 	private double lossFunction(int winnings)
 	{
-		return winnings ^ 2;
+		return -winnings;
 	}
 
 	public void mutate(Random rand)
